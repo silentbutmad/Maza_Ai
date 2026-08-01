@@ -18,8 +18,7 @@ public class UserProfile {
     private String photoUrl; // Default: empty
 
     @OneToOne
-    @MapsId
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "email", referencedColumnName = "email")
     private User user;
 
     public UserProfile() {
