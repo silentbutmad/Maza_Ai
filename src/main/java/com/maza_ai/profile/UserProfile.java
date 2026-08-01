@@ -14,8 +14,7 @@ public class UserProfile {
     private String bio; // Default: empty
 
 
-    @Lob // Use @Lob for LONGTEXT
-    @Column(columnDefinition = "LONGTEXT")
+    @Lob
     private String photoUrl; // Default: empty
 
     @OneToOne
