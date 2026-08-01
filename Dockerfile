@@ -9,7 +9,7 @@ RUN chmod +x mvnw
 
 # Copy source code and package application
 COPY src ./src
-RUN ./mvnw clean package -DskipTests
+RUN ./mvnw clean package -Dmaven.test.skip=true
 
 # Stage 2: Runtime stage
 FROM eclipse-temurin:17-jre-alpine
