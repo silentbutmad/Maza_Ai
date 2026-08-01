@@ -15,19 +15,19 @@ public class UserService {
     UserRepository userRepository;
 
     @Autowired
-    private UserProfileService userProfileService;
+    private UserProfileRepository userProfileRepository;
     @Transactional
     public User addUser(User user) {
         if (userRepository.existsById(user.getEmail())) {
             throw new IllegalArgumentException("User already exists");
         }
 
-        // Create and set user profile
-        UserProfile userProfile = new UserProfile(user.getEmail(), user.getName(), user);
-        user.setUserProfile(userProfile);
-
-        // Save user (cascade will automatically save the profile)
+        // Save user first
         User savedUser = userRepository.save(user);
+
+        // Create and save user profile separately
+        UserProfile userProfile = new UserProfile(savedUser.getEmail(), savedUser.getName(), savedUser);
+        userProfileRepository.save(userProfile);
 
         return savedUser;
     }
