@@ -25,8 +25,8 @@ public class UserService {
         // Save user first
         User savedUser = userRepository.save(user);
 
-        // Create and save user profile separately
-        UserProfile userProfile = new UserProfile(savedUser.getEmail(), savedUser.getName(), savedUser);
+        // Create and save user profile separately (without User object to avoid merge issues)
+        UserProfile userProfile = new UserProfile(savedUser.getEmail(), savedUser.getName());
         userProfileRepository.save(userProfile);
 
         return savedUser;
