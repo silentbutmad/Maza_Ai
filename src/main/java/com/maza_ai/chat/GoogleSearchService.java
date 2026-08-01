@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 @Service
 public class GoogleSearchService {
-    private static final String API_KEY = "";
+    private static final String API_KEY = "AIzaSyCDL-jyY9nVmpcYrLH-WnPe9g_1dFiNzBQ";
     private static final String CX = "7576d45c732874017";
     private static final String SEARCH_URL = "https://www.googleapis.com/customsearch/v1";
 

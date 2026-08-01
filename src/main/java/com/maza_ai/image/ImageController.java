@@ -26,10 +26,10 @@ public class ImageController {
         ImageResponse response = stabilityaiImageModel.call(
                 new ImagePrompt("A light cream colored mini golden doodle",
                         StabilityAiImageOptions.builder()
-                                .withStylePreset("cinematic")
-                                .withN(4)
-                                .withHeight(1024)
-                                .withWidth(1024)
+                                .stylePreset("cinematic")
+                                .N(4)
+                                .height(1024)
+                                .width(1024)
                                 .build())
 
                 );
